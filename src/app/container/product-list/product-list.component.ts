@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
-
+import { Component, Input, ViewChild,DoCheck } from '@angular/core';
+import { product } from 'src/app/models/product';
 @Component({
   selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+
+  selectedProduct:product;
+  
+  
   products = [
     {
       id: 1,
@@ -532,4 +536,29 @@ export class ProductListComponent {
       slug: "michael-feburary-sk8-hi"
     }
   ];
+
+  totalProtCount:number=this.products.length;
+
+  totalProductInStock=this.products.filter((e)=>{
+    return e.is_in_inventory === true
+  }).length
+
+  totalProductOutStock=this.products.filter((e)=>{
+    return e.is_in_inventory === false
+  }).length
+  
+
+  selectedRadioButton:string='all'
+
+  cachedRadio(value:string){
+    this.selectedRadioButton=value
+   
+  }
+
+  @Input() wantedData:string=""
+
+
+  
+
+  
 }

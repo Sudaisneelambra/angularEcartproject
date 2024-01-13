@@ -1,1 +1,17 @@
-<p>product-list works!</p>
+<app-filter 
+[all]="totalProtCount" 
+[inStock]="totalProductInStock" 
+[outOfStock]="totalProductOutStock" 
+(selectedFilterRadioButtonChanged)="cachedRadio($event)"
+></app-filter>
+
+<div class="ecart--product--container">
+    <!-- *ngIf="selectedRadioButton=== 'all' || prod.is_in_inventory.toString() === selectedRadioButton " -->
+    <ng-container  *ngFor="let prod of products">
+        <app-product  
+            (click)="selectedProduct=prod"
+            [product]="prod" 
+            *ngIf=" wantedData ===''|| prod.name.toLowerCase().includes(wantedData)">
+        </app-product>
+    </ng-container>
+</div>

@@ -11,9 +11,10 @@
     <button (click)="increment()">+</button>
     <input (input)="inputtrigger($event)"><br>
     <p>name: {{name}}</p> -->
-    <app-search></app-search>
+    <app-search (onSearchEvent)="searchEmittedValue($event)"></app-search>
     <!-- <div *ngFor="let item of listOfString">
         <p>current Element of array is: {{item}}</p>
     </div> -->
-    <product-list></product-list>
+    <product-list  [wantedData]="searchedValue" #productListComponent></product-list>
+    <product-details *ngIf="productListComponent.selectedProduct " [productListCopm]="productListComponent"></product-details>
 </div>
