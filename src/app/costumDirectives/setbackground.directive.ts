@@ -1,4 +1,4 @@
-import { Directive, ElementRef,OnInit, Renderer2 } from "@angular/core";
+import { Directive, ElementRef,Input,OnInit, Renderer2 } from "@angular/core";
 
 @Directive({
     selector:'[setBackground]'
@@ -9,6 +9,15 @@ export class Setbackground{
 
     private elem:ElementRef
 
+    // @Input()
+    // backColor:string='#36454F'
+
+    // @Input('setBackground')
+    // backColor:string='black'
+    // @Input()
+    // textColor:string='white'
+
+    @Input('setBackground')colorObject:{backColor:string,textColor:string}
     constructor(element:ElementRef, private render:Renderer2){
         this.elem=element
     }
@@ -20,8 +29,8 @@ export class Setbackground{
 
     // -----------------------------------rederer2----------------------
     ngOnInit(){
-        this.render.setStyle(this.elem.nativeElement,'backgroundColor','#36454f')
-        this.render.setStyle(this.elem.nativeElement,'color','#fff')
+        this.render.setStyle(this.elem.nativeElement,'backgroundColor',this.colorObject.backColor)
+        this.render.setStyle(this.elem.nativeElement,'color',this.colorObject.textColor)
        
         //    this.render.setAttribute(this.elem.nativeElement,'title','This is example title')
     
