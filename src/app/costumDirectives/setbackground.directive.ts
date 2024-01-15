@@ -20,8 +20,10 @@ export class Setbackground{
 
     // -----------------------------------rederer2----------------------
     ngOnInit(){
-        this.render.setStyle(this.elem.nativeElement,'backgroundColor','red')
-    //    this.render.setAttribute(this.elem.nativeElement,'title','This is example title')
+        this.render.setStyle(this.elem.nativeElement,'backgroundColor','#36454f')
+        this.render.setStyle(this.elem.nativeElement,'color','#fff')
+       
+        //    this.render.setAttribute(this.elem.nativeElement,'title','This is example title')
     
     // -----------------------------------rederer2----------------------
     
