@@ -17,6 +17,8 @@ import { ProductDetailsComponent } from './container/product-details/product-det
 import { Setbackground } from './costumDirectives/setbackground.directive';
 import { HighlightDirective } from './costumDirectives/highlight.directive';
 import { AppHoverDirective } from './costumDirectives/app-hover.directive';
+import { DisableProductDirective } from './costumDirectives/disable-product.directive';
+import { IfdirectiveDirective } from './costumDirectives/ifdirective.directive';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { AppHoverDirective } from './costumDirectives/app-hover.directive';
     ProductDetailsComponent,
     Setbackground,
     HighlightDirective,
-    AppHoverDirective
+    AppHoverDirective,
+    DisableProductDirective,
+    IfdirectiveDirective
   ],
   imports: [
     BrowserModule,
